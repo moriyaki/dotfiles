@@ -22,5 +22,6 @@ bash dotfiles/dots.sh
 - Linux.\* 開発する人ならこれだよねLinux用
 - Darwi.\* Applチョット好きじゃないので n が切れてるけど、使わないけどMac用：未検証
 
+## 当dotfilesの免責
 
-
+ファイル破損など一切の責任は利用者に帰するものとします。
