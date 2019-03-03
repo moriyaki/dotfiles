@@ -5,7 +5,16 @@ DOT_DIRECTORY="${HOME}/dotfiles"
 cd ${DOT_DIRECTORY}
 
 # Restore the replaced from '.' to '_' filenames.
-for f in _*
+for v in _*
 do
-  ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/$(echo ${f} | sed "s/^\_/\./")
+  ln -snfv ${DOT_DIRECTORY}/${v} ${HOME}/$(echo ${v} | sed "s/^\_/\./")
 done
+
+# Detect OS
+case "$(expr substr $(uname -s) 1 5)" in
+  "Linux" ) OS=Linux   ;;
+  "MINGW" ) OS=MinGW   ;;
+  "Darwi" ) OS=Mac     ;; # Not tested.
+  *)        OS=Unknown ;;
+esac
+

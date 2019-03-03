@@ -92,9 +92,6 @@ export DISPLAY=localhost:0.0
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias wi='cd $WI'
-alias cd-='cd -'
-alias python='python3'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -134,9 +131,4 @@ function share_history {
 PROMPT_COMMAND='share_history'
 shopt -u histappend
 
-powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# [ -f ~/.fzf.bash ] && source ~/.fzf.bash
