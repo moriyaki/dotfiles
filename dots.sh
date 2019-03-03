@@ -10,7 +10,7 @@ do
   ln -snfv ${DOT_DIRECTORY}/${v} ${HOME}/$(echo ${v} | sed "s/^\_/\./")
 done
 
-# Detect OS
+# Detect OS test.
 case "$(expr substr $(uname -s) 1 5)" in
   "Linux" ) OS=Linux   ;;
   "MINGW" ) OS=MinGW   ;;
@@ -18,3 +18,9 @@ case "$(expr substr $(uname -s) 1 5)" in
   *)        OS=Unknown ;;
 esac
 
+for f in *.*
+do
+  if [ $(expr substr ${f} 1 5) = ${OS} ]; then
+    ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/$(echo ${f} | sed "s/^${OS}//")
+  fi
+done

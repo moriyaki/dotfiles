@@ -74,7 +74,7 @@ set ttyfast " ターミナル接続を高速に
 set title " ウィンドウタイトル設定
 set number " 行番号表示
 set cursorline " カーソル行ハイライト
-"set cursorcolumn " カーソル列ハイライト
+set cursorcolumn " カーソル列ハイライト
 set ambiwidth=double " Unicode行末対策
 " set nowrap "テキストを折り返さない
 

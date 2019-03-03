@@ -8,5 +8,9 @@ case "$(expr substr $(uname -s) 1 5)" in
   *)        OS=Unknown ;;
 esac
 
-echo ${OS}
-
+for f in *.*
+do
+  if [ $(expr substr ${f} 1 5) = ${OS} ]; then
+    echo ${f} | sed "s/^${OS}//"
+  fi
+done
