@@ -13,7 +13,7 @@ done
 # Detect OS test.
 case "$(expr substr $(uname -s) 1 5)" in
   "Linux" ) OS=Linux   ;;
-  "MINGW" ) OS=MinGW   ;;
+  "MINGW" ) OS=MINGW   ;;
   "Darwi" ) OS=Mac     ;; # Not tested.
   *)        OS=Unknown ;;
 esac
