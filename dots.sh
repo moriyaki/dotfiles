@@ -26,12 +26,12 @@ echo ${OS}
 # Restore the replaced from '.' to '_' filenames.
 for v in _*
 do
-  ln -snfv ${DOT_DIRECTORY}/${v} ${HOME}/$(echo ${v} | sed "s/^\_/\./")
+  ln -snfv --backup=nil ${DOT_DIRECTORY}/${v} ${HOME}/$(echo ${v} | sed "s/^\_/\./")
 done
 
 for f in *.*
 do
   if [ $(expr substr ${f} 1 length ${OS}) = ${OS} ]; then
-    ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/$(echo ${f} | sed "s/^${OS}//")
+    ln -snfv --backup=nil ${DOT_DIRECTORY}/${f} ${HOME}/$(echo ${f} | sed "s/^${OS}//")
   fi
 done
