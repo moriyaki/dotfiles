@@ -79,6 +79,7 @@ if [ -x /usr/bin/dircolors ]; then
     #alias dir='dir --color=always'
     #alias vdir='vdir --color=always'
 
+    alias less='less -R'
     alias grep='grep --color=always'
     alias fgrep='fgrep --color=always'
     alias egrep='egrep --color=always'
