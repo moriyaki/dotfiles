@@ -106,6 +106,10 @@ alias ll='ls -l'                              # long list
 alias la='ls -A'                              # all but . and ..
 alias l='ls -CF'                              #
 
+alias vi='vim'
+alias mery='/c/tools/mery/mery.exe'
+
+
 # Umask
 #
 # /etc/profile sets 022, removing write perms to group + others.
