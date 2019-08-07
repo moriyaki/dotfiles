@@ -108,7 +108,11 @@ alias l='ls -CF'                              #
 
 alias vi='vim'
 alias mery='/c/tools/mery/mery.exe'
+alias asr='/c/tools/asr/asrload.exe'
+#alias python3='winpty ptyhon'
+alias gac='git add . && git commit -m "$@"'
 
+export GOPATH=~/.go
 
 # Umask
 #
