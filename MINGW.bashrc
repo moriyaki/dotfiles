@@ -49,7 +49,7 @@
 # COMP_CONFIGURE_HINTS=1
 #
 # Define to avoid flattening internal contents of tar files
-# COMP_TAR_INTERNAL_PATHS=1
+COMP_TAR_INTERNAL_PATHS=1
 #
 # Uncomment to turn on programmable completion enhancements.
 # Any completions you add in ~/.bash_completion are sourced last.
@@ -99,12 +99,16 @@ alias egrep='egrep --color=always'              # show differences in colour
 alias fgrep='fgrep --color=always'              # show differences in colour
 #
 # Some shortcuts for different directory listings
-# alias ls='ls -hF --color=tty'                 # classify files in colour
+alias ls='ls -hF --color=tty'                 # classify files in colour
 # alias dir='ls --color=auto --format=vertical'
 # alias vdir='ls --color=auto --format=long'
 alias ll='ls -l'                              # long list
 alias la='ls -A'                              # all but . and ..
 alias l='ls -CF'                              #
+
+alias vi='vim'
+alias mery='/c/tools/mery/mery.exe'
+
 
 # Umask
 #

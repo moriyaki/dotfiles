@@ -13,7 +13,9 @@ case "$(expr substr $(uname -s) 1 5)" in
       OS=Linux
     fi
     ;;
-  "MINGW" ) OS=MINGW   ;;
+  "MINGW" ) 
+    OS=MINGW
+    ;;
   "Darwi" ) OS=Mac     ;; # Not tested.
   *)
     echo "Unknown OS"
@@ -35,3 +37,11 @@ do
     ln -snfv --backup=nil ${DOT_DIRECTORY}/${f} ${HOME}/$(echo ${f} | sed "s/^${OS}//")
   fi
 done
+
+if [[ ${OS} == "MINGW" ]]; then
+  cmd.exe /c "mklink /j ..\\Documents c:\\Users\\%USERNAME%\\Documents"
+  cmd.exe /c "mklink /j ..\\Pictures c:\\Users\\%USERNAME%\\Pictures"
+  cmd.exe /c "mklink /j ..\\Videos c:\\Users\\%USERNAME%\\Videos"
+  cmd.exe /c "mklink /j ..\\Downloads c:\\Users\\%USERNAME%\\Downloads"
+  cmd.exe /c "mklink /j ..\\Desktop c:\\Users\\%USERNAME%\\Desktop"
+fi
