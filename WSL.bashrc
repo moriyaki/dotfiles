@@ -133,4 +133,12 @@ function share_history {
 PROMPT_COMMAND='share_history'
 shopt -u histappend
 
-# [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# SSH Agent
+SSH_KEY_LIFE_TIME_SEC=3600
+SSH_AGENT_FILE=$HOME/.ssh-agent
+test -f $SSH_AGENT_FILE && source $SSH_AGENT_FILE > /dev/null 2>&1
+if [ $( ps -ef | grep ssh-agent | grep -v grep | wc -l ) -eq 0 ]; then
+  ssh-agent -t $SSH_KEY_LIFE_TIME_SEC > $SSH_AGENT_FILE
+  source $SSH_AGENT_FILE > /dev/null 2>&1
+fi
+
