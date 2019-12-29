@@ -14,6 +14,8 @@ try
   Plug 'sjl/badwolf'
   Plug 'tomasr/molokai'
 
+  Plug 'Shougo/unite.vim'  " Unite.vim
+  Plug 'kana/vim-submode' " Submode.vim
   Plug 'vim-jp/vimdoc-ja' " 日本語ドキュメント
   Plug 'bronson/vim-trailing-whitespace' "行末空行ハイライト
   Plug 'nathanaelkane/vim-indent-guides' " インデントハイライト
@@ -23,9 +25,9 @@ try
 
   colorscheme molokai
 catch
-  echo "Exec :PlugInstall or"
+  echo "No installed Vim-Plug. Please exec this comman or Windows PowerShell script. After this, exec PlugInstall on vim"
   echo "curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-  call system("curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
+  colorscheme murphy
 endtry
 set background=dark
 
@@ -115,6 +117,43 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 " 履歴からショートカット利用
 "cnoremap <C-p> <Up> cnoremap <C-n> <Down>
 
+" タブページキーバインド
+nnoremap s <Nop>
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+nnoremap sJ <C-w>J
+nnoremap sK <C-w>K
+nnoremap sL <C-w>L
+nnoremap sH <C-w>H
+nnoremap sn gt
+nnoremap sp gT
+nnoremap sr <C-w>r
+nnoremap s= <C-w>=
+nnoremap sw <C-w>w
+nnoremap so <C-w>_<C-w>|
+nnoremap sO <C-w>=
+nnoremap sN :<C-u>bn<CR>
+nnoremap sP :<C-u>bp<CR>
+nnoremap st :<C-u>tabnew<CR>
+nnoremap sT :<C-u>Unite tab<CR>
+nnoremap ss :<C-u>sp<CR>
+nnoremap sv :<C-u>vs<CR>
+nnoremap sq :<C-u>q<CR>
+nnoremap sQ :<C-u>bd<CR>
+nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
+nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
+
+call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
+call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
+call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
+call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
+call submode#map('bufmove', 'n', '', '>', '<C-w>>')
+call submode#map('bufmove', 'n', '', '<', '<C-w><')
+call submode#map('bufmove', 'n', '', '+', '<C-w>+')
+call submode#map('bufmove', 'n', '', '-', '<C-w>-')
+
 " Spaceキーバインド---------------------
 nnoremap <silent> <Space>v :e $MYVIMRC<CR>
 nnoremap <silent> <Space>g :e $MYGVIMRC<CR>
@@ -131,7 +170,7 @@ nnoremap <Space>n :NERDTreeToggle<CR>
 
 " Terminalを space t で開く
 if has("win32")
-  nnoremap <silent> <Space>t :<C-u>term ++close ++rows=15 Ubuntu1804<CR>
+  nnoremap <silent> <Space>t :<C-u>term ++close ++rows=15 Ubuntu<CR>
 else
   nnoremap <silent> <Space>t :<C-u>term ++close ++rows=15<CR>
 endif
