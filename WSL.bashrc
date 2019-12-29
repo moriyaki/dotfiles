@@ -95,6 +95,8 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+alias mery='/mnt/c/tools/Mery/Mery.exe $@'
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -134,11 +136,4 @@ PROMPT_COMMAND='share_history'
 shopt -u histappend
 
 # SSH Agent
-SSH_KEY_LIFE_TIME_SEC=3600
-SSH_AGENT_FILE=$HOME/.ssh-agent
-test -f $SSH_AGENT_FILE && source $SSH_AGENT_FILE > /dev/null 2>&1
-if [ $( ps -ef | grep ssh-agent | grep -v grep | wc -l ) -eq 0 ]; then
-  ssh-agent -t $SSH_KEY_LIFE_TIME_SEC > $SSH_AGENT_FILE
-  source $SSH_AGENT_FILE > /dev/null 2>&1
-fi
-
+eval $(ssh-agent)
