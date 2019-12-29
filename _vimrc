@@ -23,9 +23,9 @@ try
 
   colorscheme molokai
 catch
-  echo "No installed Vim-Plug. Please exec this comman or Windows PowerShell script. After this, exec PlugInstall on vim"
+  echo "Exec :PlugInstall or"
   echo "curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-  colorscheme murphy
+  call system("curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
 endtry
 set background=dark
 

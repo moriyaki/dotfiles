@@ -95,7 +95,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-alias mery='/mnt/c/tools/Mery/Mery.exe $@'
+alias vi='vim'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -135,5 +135,4 @@ function share_history {
 PROMPT_COMMAND='share_history'
 shopt -u histappend
 
-# SSH Agent
-eval $(ssh-agent)
+# [ -f ~/.fzf.bash ] && source ~/.fzf.bash
