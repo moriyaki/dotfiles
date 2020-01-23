@@ -136,14 +136,12 @@ PROMPT_COMMAND='share_history'
 shopt -u histappend
 
 # SSH Agent
-eval $(ssh-agent)
 SSH_AGENT_FILE=$HOME/.ssh/ssh-agent
 [ -f $SSH_AGENT_FILE ] && source $SSH_AGENT_FILE >& /dev/null
 
 if ! ssh-add -l >& /dev/null ; then
     ssh-agent > $SSH_AGENT_FILE
-    # ssh-agent の設定内容を標準出力してほしいなら、/dev/null へ投げなくても良い
     source $SSH_AGENT_FILE >& /dev/null
-    # $HOME/.ssh 配下にある id_rsa という名前のファイルを ssh-add
-    find $HOME/.ssh -name id_rsa | xargs ssh-add
+    ssh-add ~/.ssh/karen
+    ssh-add ~/.ssh/github
 fi
