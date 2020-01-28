@@ -58,7 +58,7 @@ fi
 
 if [ "$color_prompt" = yes ]; then
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h \[\033[33m\]\w\[\033[00m\]\n\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[32m\]\u@\h \[\033[01;33m\]\w\[\033[00m\]\n\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -146,3 +146,7 @@ if ! ssh-add -l >& /dev/null ; then
     ssh-add ~/.ssh/karen
     ssh-add ~/.ssh/github
 fi
+
+source ~/.git-completion.bash
+source ~/.git-prompt.sh
+

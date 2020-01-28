@@ -45,3 +45,8 @@ if [[ ${OS} == "MINGW" ]]; then
   cmd.exe /c "mklink /j ..\\Downloads c:\\Users\\%USERNAME%\\Downloads"
   cmd.exe /c "mklink /j ..\\Desktop c:\\Users\\%USERNAME%\\Desktop"
 fi
+
+curl -o ~/.git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+curl -o ~/.git-prompt.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+chmod a+x ~/.git-completion.bash
+chmod a+x ~/.git-prompt.bash
