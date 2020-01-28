@@ -89,9 +89,9 @@ if [ -x /usr/bin/dircolors ]; then
     #alias dir='dir --color=always'
     #alias vdir='vdir --color=always'
 
-    alias grep='grep --color=always'
-    alias fgrep='fgrep --color=always'
-    alias egrep='egrep --color=always'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
 fi
 
 # colored GCC warnings and errors
