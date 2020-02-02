@@ -27,7 +27,6 @@ try
 catch
   echo "No installed Vim-Plug. Please exec this comman or Windows PowerShell script. After this, exec PlugInstall on vim"
   echo "curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-  quit
   colorscheme murphy
 endtry
 set background=dark
