@@ -96,7 +96,7 @@ fi
 
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-export DISPLAY=localhost:0.0
+export DISPLAY=:0.0
 export LESS='-R'
 export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 
