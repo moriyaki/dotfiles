@@ -85,7 +85,7 @@ esac
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
+    alias ls='ls --color=always'
     #alias dir='dir --color=always'
     #alias vdir='vdir --color=always'
 
@@ -157,3 +157,19 @@ man() {
     LESS_TERMCAP_us=$'\e[01;32m' \
     command man "$@"
 }
+
+# Only WSL
+if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then \
+	alias mery='/mnt/c/tools/Mery/Mery.exe $@'
+	alias pow='powershell.exe'
+	
+	SSH_AGENT_FILE=$HOME/.ssh/ssh-agent
+	[ -f $SSH_AGENT_FILE ] && source $SSH_AGENT_FILE >& /dev/null
+
+	if ! ssh-add -l >& /dev/null ; then
+	    ssh-agent > $SSH_AGENT_FILE
+	    source $SSH_AGENT_FILE >& /dev/null
+	    ssh-add ~/.ssh/karen
+	    ssh-add ~/.ssh/github
+	fi
+fi

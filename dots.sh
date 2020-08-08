@@ -7,11 +7,7 @@ cd ${DOT_DIRECTORY}
 # Detect OS test.
 case "$(expr substr $(uname -s) 1 5)" in
   "Linux" )
-    if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
-      OS=WSL
-    else
-      OS=Linux
-    fi
+    OS=Linux
     ;;
   "MINGW" ) 
     OS=MINGW
@@ -31,14 +27,8 @@ do
   ln -snfv --backup=nil ${DOT_DIRECTORY}/${v} ${HOME}/$(echo ${v} | sed "s/^\_/\./")
 done
 
-for f in *.*
-do
-  if [ $(expr substr ${f} 1 length ${OS}) = ${OS} ]; then
-    ln -snfv --backup=nil ${DOT_DIRECTORY}/${f} ${HOME}/$(echo ${f} | sed "s/^${OS}//")
-  fi
-done
-
 if [[ ${OS} == "MINGW" ]]; then
+  ln -nfv --backup=nil ${DOT_DIRECTORY}/${f} ${HOME}/$(echo ${f} | sed "s/^${OS}//")
   cmd.exe /c "mklink /j ..\\Documents c:\\Users\\%USERNAME%\\Documents"
   cmd.exe /c "mklink /j ..\\Pictures c:\\Users\\%USERNAME%\\Pictures"
   cmd.exe /c "mklink /j ..\\Videos c:\\Users\\%USERNAME%\\Videos"
