@@ -1,3 +1,0 @@
-if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then \
-  ssh-agent -k
-fi
