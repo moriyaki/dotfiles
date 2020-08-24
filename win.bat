@@ -1,5 +1,5 @@
-@echo off
-mklink /J %HOME%\vimfiles\vimrc %HOME%\dotfiles\_vimrc
-mklink /J %HOME%\vimfiles\gvimrc %HOME%\dotfiles\_gvimrc
-mklink /J %HOME%\.vimrc %HOME%\dotfiles\_vimrc
-mklink /J %HOME%\.gvimrc %HOME%\dotfiles\_gvimrc
+rem @echo off
+mklink /h %HOMEPATH%\vimfiles\vimrc %HOMEPATH%\dotfiles\_vimrc
+mklink /h %HOMEPATH%\vimfiles\gvimrc %HOMEPATH%\dotfiles\_gvimrc
+mklink /h %HOMEPATH%\.vimrc %HOMEPATH%\dotfiles\_vimrc
+mklink /h %HOMEPATH%\.gvimrc %HOMEPATH%\dotfiles\_gvimrc
