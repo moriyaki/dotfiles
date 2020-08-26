@@ -171,6 +171,5 @@ if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then \
 	    source $SSH_AGENT_FILE >& /dev/null
 	    ssh-add ~/.ssh/karen
 	    ssh-add ~/.ssh/github
-      eval "$(ssh-agent -s)"
 	fi
 fi
