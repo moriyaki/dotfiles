@@ -15,7 +15,6 @@ try
   Plug 'bronson/vim-trailing-whitespace' "行末空行ハイライト
   Plug 'nathanaelkane/vim-indent-guides' " インデントハイライト
   Plug 'itchyny/lightline.vim' " ステータスライン
-  Plug 'scrooloose/nerdtree'
   call plug#end()
 
   colorscheme molokai
@@ -41,15 +40,6 @@ let g:lightline = {
 	\ }
 	\ }
 
-" NERDTree
-autocmd StdinReadPre * let s:std_in=1
-" ファイル指定がなければ自動起動
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" ディレクトリを開いたとき
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-" NERDTreeのみになったら閉じる
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
 " End Auto PlugInstall
 let g:ranger_map_keys = 0
 
@@ -65,6 +55,7 @@ set autochdir " カレントディレクトリに移動
 set noswapfile " スワップファイルを作らない
 set belloff=all "beep抑制
 set wildmode=longest,list " 共通する最長の文字列を補完し、次から他の候補を羅列する
+set wildmenu
 
 set ttyfast " ターミナル接続を高速に
 set title " ウィンドウタイトル設定
@@ -101,10 +92,6 @@ augroup END
 nnoremap <F6> :<C-u>source $MYVIMRC<CR> :source $MYGVIMRC<CR>
 
 nnoremap Y y$
-inoremap <silent> jj <ESC>
-
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
 
 " Spaceキーバインド---------------------
 nnoremap <silent> <Space>v :tabnew $MYVIMRC<CR>
