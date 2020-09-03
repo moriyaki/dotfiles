@@ -3,10 +3,6 @@ scriptencodin utf-8
 source $VIMRUNTIME/defaults.vim
 filetype plugin on
 
-" Windows(PowerShell)
-" md ~\AppData\Local\nvim\autoload $uri = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-" (New-Object Net.WebClient).DownloadFile($uri,$ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath("~\AppData\Local\nvim\autoload\plug.vim"))
-
 try
   " setting
   call plug#begin('$HOME/.vim/plugged/')
@@ -14,7 +10,6 @@ try
   Plug 'sjl/badwolf'
   Plug 'tomasr/molokai'
 
-  Plug 'Shougo/unite.vim'  " Unite.vim
   Plug 'kana/vim-submode' " Submode.vim
   Plug 'vim-jp/vimdoc-ja' " 日本語ドキュメント
   Plug 'bronson/vim-trailing-whitespace' "行末空行ハイライト
@@ -25,8 +20,7 @@ try
 
   colorscheme molokai
 catch
-  echo "No installed Vim-Plug. Please exec this comman or Windows PowerShell script. After this, exec PlugInstall on vim"
-  echo "curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+  PlugInstall
   colorscheme murphy
 endtry
 set background=dark
@@ -50,7 +44,7 @@ let g:lightline = {
 " NERDTree
 autocmd StdinReadPre * let s:std_in=1
 " ファイル指定がなければ自動起動
-"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " ディレクトリを開いたとき
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 " NERDTreeのみになったら閉じる
@@ -107,71 +101,23 @@ augroup END
 nnoremap <F6> :<C-u>source $MYVIMRC<CR> :source $MYGVIMRC<CR>
 
 nnoremap Y y$
-nnoremap + <C-a>
-nnoremap - <C-x>
 inoremap <silent> jj <ESC>
 
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
-" 履歴からショートカット利用
-"cnoremap <C-p> <Up> cnoremap <C-n> <Down>
-
-" タブページキーバインド
-nnoremap s <Nop>
-nnoremap sj <C-w>j
-nnoremap sk <C-w>k
-nnoremap sl <C-w>l
-nnoremap sh <C-w>h
-nnoremap sJ <C-w>J
-nnoremap sK <C-w>K
-nnoremap sL <C-w>L
-nnoremap sH <C-w>H
-nnoremap sn gt
-nnoremap sp gT
-nnoremap sr <C-w>r
-nnoremap s= <C-w>=
-nnoremap sw <C-w>w
-nnoremap so <C-w>_<C-w>|
-nnoremap sO <C-w>=
-nnoremap sN :<C-u>bn<CR>
-nnoremap sP :<C-u>bp<CR>
-nnoremap st :<C-u>tabnew<CR>
-nnoremap sT :<C-u>Unite tab<CR>
-nnoremap ss :<C-u>sp<CR>
-nnoremap sv :<C-u>vs<CR>
-nnoremap sq :<C-u>q<CR>
-nnoremap sQ :<C-u>bd<CR>
-nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
-nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
-
-call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
-call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
-call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
-call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
-call submode#map('bufmove', 'n', '', '>', '<C-w>>')
-call submode#map('bufmove', 'n', '', '<', '<C-w><')
-call submode#map('bufmove', 'n', '', '+', '<C-w>+')
-call submode#map('bufmove', 'n', '', '-', '<C-w>-')
-
 " Spaceキーバインド---------------------
-nnoremap <silent> <Space>v :e $MYVIMRC<CR>
-nnoremap <silent> <Space>g :e $MYGVIMRC<CR>
-nnoremap <Space>n :NERDTreeToggle<CR>
-
-" Agit
-"nnoremap <silent> <Space>a :<C-u>Agit<CR>
-" タブ切り替え
-"nnoremap <silent> <Space>n :<C-u>:bnext<CR> nnoremap <silent> <Space>p
-":<C-u>:bprevious<CR>
-"nmap <silent> <Space>n <Plug>AirlineSelectNextTab
-"nmap <silent> <Space>p <Plug>AirlineSelectPrevTab
-
+nnoremap <silent> <Space>v :tabnew $MYVIMRC<CR>
+nnoremap <silent> <Space>g :tabnew $MYGVIMRC<CR>
+nnoremap <silent> <Space>t :tabnew<CR>
+nnoremap <silent> <Space>n :tabnext<CR>
+nnoremap <silent> <Space>p :tabprev<CR>
+nnoremap <silent> <Space>x :tabclose!<CR>
 
 " Terminalを space t で開く
 if has("win32")
-  nnoremap <silent> <Space>t :<C-u>term ++close ++rows=15 Ubuntu<CR>
+  nnoremap <silent> <Space>s :<C-u>term ++close ++rows=15 Ubuntu<CR>
 else
-  nnoremap <silent> <Space>t :<C-u>term ++close ++rows=15<CR>
+  nnoremap <silent> <Space>s :<C-u>term ++close ++rows=15<CR>
 endif
 
