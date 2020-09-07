@@ -36,6 +36,18 @@ if [[ ${OS} == "MINGW" ]]; then
   cmd.exe /c "mklink /j ..\\Desktop c:\\Users\\%USERNAME%\\Desktop"
 fi
 
+if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then \
+  echo "wsl"
+  ln -s /mnt/c/Users/moriyaki ~/Home
+  ln -s ~/Home/Desktop ~/Desktop
+  ln -s ~/Home/Documents ~/Documents
+  ln -s ~/Home/Downloads ~/Downloads
+  ln -s ~/Home/Pictures ~/Pictures
+  ln -s ~/Home/Videos ~/Videos
+  ln -s ~/Home/Dropbox ~/Dropbox
+  ln -s ~/Home/OneDrive ~/OneDrive
+fi
+
 curl -o ~/.git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 curl -o ~/.git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
