@@ -136,6 +136,7 @@ if [ "$INSIDE_EMACS" ]; then
 fi
 export DISPLAY=:0.0
 export GOPATH=$HOME/work
+export EDITOR=vim
 
 function share_history {
   history -a
