@@ -95,10 +95,6 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-export DISPLAY=:0.0
-export LESS='-R'
-export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 
 # some more ls aliases
 alias ll='ls -alF'
@@ -134,9 +130,6 @@ fi
 if [ "$INSIDE_EMACS" ]; then
   TERM=eterm-color
 fi
-export DISPLAY=:0.0
-export GOPATH=$HOME/work
-export EDITOR=vim
 
 function share_history {
   history -a
@@ -175,3 +168,4 @@ if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then \
 	    ssh-add ~/.ssh/github
 	fi
 fi
+source "$HOME/.cargo/env"
