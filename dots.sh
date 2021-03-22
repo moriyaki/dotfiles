@@ -4,27 +4,15 @@ set -e
 DOT_DIRECTORY="${HOME}/dotfiles"
 cd ${DOT_DIRECTORY}
 
-# Detect OS test.
-case "$(expr substr $(uname -s) 1 5)" in
-  "Linux" )
-    OS=Linux
-    ;;
-  "MINGW" ) 
-    OS=MINGW
-    ;;
-  "Darwi" ) OS=Mac     ;; # Not tested.
-  *)
-    echo "Unknown OS"
-    exit 1
-    ;;
-esac
-
 echo ${OS}
 
-# Restore the replaced from '.' to '_' filenames.
-for v in _*
-do
-  ln -snfv --backup=nil ${DOT_DIRECTORY}/${v} ${HOME}/$(echo ${v} | sed "s/^\_/\./")
+echo "start setup..."
+for f in .??*; do
+    [ "$f" = ".git" ] && continue
+    [ "$f" = ".gitconfig.local.template" ] && continue
+    [ "$f" = ".gitmodules" ] && continue
+
+    ln -snfv ~/dotfiles/"$f" ~/
 done
 
 if [[ ${OS} == "MINGW" ]]; then
