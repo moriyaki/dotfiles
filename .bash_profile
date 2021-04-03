@@ -7,5 +7,9 @@ export LESS='-R'
 export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 export DISPLAY=:1.0
 export GOPATH=$HOME/work
+export LANG=ja_JP.utf8
 export EDITOR=vim
-export PATH=$PATH:$HOME/.cargo/bin
+if [ -e $HOME/.cargo/bin ]; then
+  export PATH=$PATH:$HOME/.cargo/bin
+fi
+
