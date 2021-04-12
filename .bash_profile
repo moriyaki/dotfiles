@@ -9,7 +9,7 @@ export DISPLAY=:1.0
 export GOPATH=$HOME/work
 export LANG=ja_JP.utf8
 export EDITOR=vim
-if [ -e $HOME/.cargo/bin ]; then
-  export PATH=$PATH:$HOME/.cargo/bin
+if [ -d $HOME/.cargo/bin ]; then
+    export PATH=$PATH:$HOME/.cargo/bin
+    source "$HOME/.cargo/env"
 fi
-
