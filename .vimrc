@@ -15,6 +15,7 @@ try
   Plug 'bronson/vim-trailing-whitespace' "行末空行ハイライト
   Plug 'nathanaelkane/vim-indent-guides' " インデントハイライト
   Plug 'itchyny/lightline.vim' " ステータスライン
+   Plug 'lambdalisue/fern.vim' "ファイラー/まだ待つ
   call plug#end()
 
   colorscheme molokai
@@ -44,8 +45,8 @@ let g:lightline = {
 let g:ranger_map_keys = 0
 
 if v:version >= 800
-set emoji "絵文字を全角
-set termguicolors " ターミナルでGUIカラーを使う
+  set emoji "絵文字を全角
+  set termguicolors " ターミナルでGUIカラーを使う
 endif
 
 set fileencoding=utf-8 " 保存時の文字コード
@@ -96,16 +97,16 @@ nnoremap Y y$
 
 " Spaceキーバインド---------------------
 nnoremap <silent> <Space>v :tabnew $MYVIMRC<CR>
-nnoremap <silent> <Space>g :tabnew $MYGVIMRC<CR>
 nnoremap <silent> <Space>t :tabnew<CR>
 nnoremap <silent> <Space>n :tabnext<CR>
 nnoremap <silent> <Space>p :tabprev<CR>
 nnoremap <silent> <Space>x :tabclose!<CR>
+nnoremap <silent> <Space>f :Fern . <CR>
 
 " Terminalを space t で開く
 if has("win32")
-  nnoremap <silent> <Space>s :<C-u>term ++close ++rows=15 Ubuntu<CR>
+  nnoremap <silent> <Space>t :<C-u>term ++close ++rows=15 Ubuntu<CR>
 else
-  nnoremap <silent> <Space>s :<C-u>term ++close ++rows=15<CR>
+  nnoremap <silent> <Space>t :<C-u>term ++close ++rows=15<CR>
 endif
 
