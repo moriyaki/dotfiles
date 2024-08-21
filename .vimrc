@@ -97,7 +97,7 @@ nnoremap Y y$
 
 " Spaceキーバインド---------------------
 nnoremap <silent> <Space>v :tabnew $MYVIMRC<CR>
-nnoremap <silent> <Space>t :tabnew<CR>
+nnoremap <silent> <Space>o :tabnew<CR>
 nnoremap <silent> <Space>n :tabnext<CR>
 nnoremap <silent> <Space>p :tabprev<CR>
 nnoremap <silent> <Space>x :tabclose!<CR>

@@ -148,7 +148,7 @@ man() {
 if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then \
     alias mery='/mnt/c/tools/Mery/Mery.exe $@'
     alias pow='powershell.exe'
-    alias vscode='/mnt/c/Program\ Files/Microsoft\ VS\ Code/Code.exe $@'
+    alias vscode='/mnt/c/Users/moriyaki/AppData/Local/Programs/Microsoft\ VS\ Code/Code.exe $@'
 
     SSH_AGENT_FILE=$HOME/.ssh/ssh-agent
     [ -f $SSH_AGENT_FILE ] && source $SSH_AGENT_FILE >& /dev/null
@@ -172,3 +172,5 @@ shopt -u histappend
 
 # other alias
 alias vi='vim'
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
