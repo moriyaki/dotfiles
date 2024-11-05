@@ -49,6 +49,7 @@ if v:version >= 800
   set termguicolors " ターミナルでGUIカラーを使う
 endif
 
+set modifiable
 set fileencoding=utf-8 " 保存時の文字コード
 set fileencodings=ucs-boms,utf-8,euc-jp,cp932 " 読み込み時の文字コードの自動判別
 set fileformats=unix,dos,mac " 改行コードの自動判別

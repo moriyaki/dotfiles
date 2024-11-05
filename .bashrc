@@ -173,4 +173,3 @@ shopt -u histappend
 # other alias
 alias vi='vim'
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
