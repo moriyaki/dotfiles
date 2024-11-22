@@ -66,16 +66,9 @@ if [ "$color_prompt" = yes ]; then
     GIT_PS1_SHOWUPSTREAM=1
     GIT_PS1_SHOWUNTRACKEDFILES=1
     GIT_PS1_SHOWSTASHSTATE=1
-    #
-    # 仮想環境の名前を取得
-    if [ -n "$VIRTUAL_ENV" ]; then
-        VENV_NAME="\[\033[36m\]($(basename $VIRTUAL_ENV)) \[\033[00m\]"
-    else
-        VENV_NAME=""
-    fi
 
     # Git情報と仮想環境情報を含めたプロンプトを設定
-    PS1='${debian_chroot:+($debian_chroot)}\n\[\033[01;32m\]\u@\h\[\033[01;31m\]$(__git_ps1)\[\033[00m\]\n\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\n\[\e[01;32m\]\u@\h \[\e[01;33m\]\w \[\e[01;31m\]$(__git_ps1)\[\033[00m\]\n\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
