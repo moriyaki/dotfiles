@@ -66,10 +66,16 @@ if [ "$color_prompt" = yes ]; then
     GIT_PS1_SHOWUPSTREAM=1
     GIT_PS1_SHOWUNTRACKEDFILES=1
     GIT_PS1_SHOWSTASHSTATE=1
+    #
+    # 仮想環境の名前を取得
+    if [ -n "$VIRTUAL_ENV" ]; then
+        VENV_NAME="\[\033[36m\]($(basename $VIRTUAL_ENV)) \[\033[00m\]"
+    else
+        VENV_NAME=""
+    fi
 
-    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    # git prompt
-    PS1='${debian_chroot:+($debian_chroot)}\n\[\033[01;32m\]\u@\h \[\033[33m\]\w\[\033[01;31m\]$(__git_ps1)\[\033[00m\]\n\$ '
+    # Git情報と仮想環境情報を含めたプロンプトを設定
+    PS1='${debian_chroot:+($debian_chroot)}\n\[\033[01;32m\]\u@\h\[\033[01;31m\]$(__git_ps1)\[\033[00m\]\n\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -95,6 +101,8 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+
+alias activate='source ~/myenv/bin/activate'
 
 # colored GCC warnings and errors
 
