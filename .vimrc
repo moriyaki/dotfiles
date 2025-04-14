@@ -17,6 +17,7 @@ try
   Plug 'itchyny/lightline.vim' " ステータスライン
   Plug 'lambdalisue/fern.vim' "ファイラー
   call plug#end()
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 
   colorscheme molokai
 catch
