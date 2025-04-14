@@ -1,11 +1,11 @@
 set encoding=utf-8
-scriptencodin utf-8
+scriptencoding utf-8
 source $VIMRUNTIME/defaults.vim
 filetype plugin on
 
 try
   " setting
-  call plug#begin('$HOME/.vim/plugged/')
+  call plug#begin(expand('$HOME/.vim/plugged/'))
   " colorscheme
   Plug 'sjl/badwolf'
   Plug 'tomasr/molokai'
@@ -15,7 +15,7 @@ try
   Plug 'bronson/vim-trailing-whitespace' "行末空行ハイライト
   Plug 'nathanaelkane/vim-indent-guides' " インデントハイライト
   Plug 'itchyny/lightline.vim' " ステータスライン
-   Plug 'lambdalisue/fern.vim' "ファイラー/まだ待つ
+  Plug 'lambdalisue/fern.vim' "ファイラー
   call plug#end()
 
   colorscheme molokai
