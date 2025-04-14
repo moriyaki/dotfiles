@@ -17,7 +17,16 @@ try
   Plug 'itchyny/lightline.vim' " ステータスライン
   Plug 'lambdalisue/fern.vim' "ファイラー
   call plug#end()
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+
+  " PlugInstall が未実行のときだけ発動
+  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+    autocmd VimEnter * ++once call s:auto_plug_install()
+  endif
+
+  function! s:auto_plug_install() abort
+    echo "✨ 初回起動なので PlugInstall を実行しますわ〜！"
+    PlugInstall --sync | q | source $MYVIMRC
+  endfunction
 
   colorscheme molokai
 catch
