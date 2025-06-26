@@ -3,6 +3,10 @@ if [ -f ~/.bashrc ]; then
 fi
 
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+if [ -x /usr/share/source-highlight/src-hilite-lesspipe.sh ]; then
+  export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
+  export LESS=' -R '
+fi
 export LESS='-R'
 export DISPLAY=:0.0
 export GOPATH=$HOME/work
