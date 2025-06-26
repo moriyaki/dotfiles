@@ -96,6 +96,9 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 alias activate='source ~/myenv/bin/activate'
+alias novel='cd "${HOME}/Home/source/repos/novel"'
+setxkbmap jp > /dev/null 2>> ~/.setxkbmap_warnings.log
+
 
 # colored GCC warnings and errors
 
@@ -173,4 +176,3 @@ shopt -u histappend
 
 # other alias
 alias vi='vim'
-
