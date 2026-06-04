@@ -146,8 +146,15 @@ man() {
     command man "$@"
 }
 
+# other alias
+alias vi='vim'
+export PATH="/usr/local/go/bin:$PATH"
+
 # Only WSL
 if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then \
+  PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
     alias pow='powershell.exe'
 
     SSH_AGENT_FILE=$HOME/.ssh/ssh-agent
@@ -170,9 +177,4 @@ function share_history {
 PROMPT_COMMAND='share_history'
 shopt -u histappend
 
-# other alias
-alias vi='vim'
-export PATH="/usr/local/go/bin:$PATH"
-
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
