@@ -11,7 +11,6 @@ export LESS='-R'
 export GOPATH=$HOME/work
 export LANG=ja_JP.utf8
 export EDITOR=vim
-export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
 if [ -d $HOME/.cargo/bin ]; then
     export PATH=$PATH:$HOME/.cargo/bin
     source "$HOME/.cargo/env"
