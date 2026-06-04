@@ -95,10 +95,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-alias activate='source ~/myenv/bin/activate'
-alias novel='cd "/mnt/nas/novel"'
-alias make_toc='${HOME}/Home/scripts/make_toc.sh'
-alias epub='${HOME}/novel_templete/make_epub.sh'
 setxkbmap jp > /dev/null 2>> ~/.setxkbmap_warnings.log
 
 
