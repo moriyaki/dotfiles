@@ -1,9 +1,10 @@
 set enc=utf-8
-set columns=180
-set lines=65
+set columns=120
+set lines=60
 if has('win32')
-  set guifont=Myrica_M:h14:cDEFAULT
+  set guifont=Migu_1M:h14
   set rop=type:directx,geom:1
+  set lazyredraw
   set linespace=1
 endif
 

@@ -117,7 +117,7 @@ nnoremap <silent> <Space>f :Fern . <CR>
 
 " Terminalを space t で開く
 if has("win32")
-  nnoremap <silent> <Space>t :<C-u>term ++close ++rows=15 Ubuntu<CR>
+  nnoremap <silent> <Space>t :<C-u>term ++close ++rows=15 Debian<CR>
 else
   nnoremap <silent> <Space>t :<C-u>term ++close ++rows=15<CR>
 endif
