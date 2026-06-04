@@ -8,7 +8,6 @@ if [ -x /usr/share/source-highlight/src-hilite-lesspipe.sh ]; then
   export LESS=' -R '
 fi
 export LESS='-R'
-export DISPLAY=:0.0
 export GOPATH=$HOME/work
 export LANG=ja_JP.utf8
 export EDITOR=vim

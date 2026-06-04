@@ -85,6 +85,7 @@ set softtabstop=2 " 連続した空白でタブやバックスペースの幅
 set smartindent " スマートインデント
 set autoindent " オートインデント
 set smarttab " Tabでshiftwidthだけインデント
+set clipboard=unnamedplus,unnamed
 "set paste " ペースト時のインデント崩れを回避？
 
 set ignorecase " 検索で大文字小文字を無視
